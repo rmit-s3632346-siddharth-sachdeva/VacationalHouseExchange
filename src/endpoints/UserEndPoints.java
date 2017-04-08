@@ -1,7 +1,6 @@
 package endpoints;
 
 import javax.ws.rs.Path;
-
 import webservices.LoginService;
 import webservices.RegisterService;
 
