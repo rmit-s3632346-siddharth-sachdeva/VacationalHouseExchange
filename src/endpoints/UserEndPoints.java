@@ -8,6 +8,8 @@ import webservices.RegisterService;
 @Path("/userendpoints")
 public class UserEndPoints {
 	
+	
+	
 	@Path("/login")
 	public LoginService loginEndPoint() {
 		return new LoginService();
