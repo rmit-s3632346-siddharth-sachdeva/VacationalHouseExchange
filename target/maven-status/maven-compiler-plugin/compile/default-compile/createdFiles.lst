@@ -1,3 +1,7 @@
-webservices\UserServices.class
+database\DBOperations.class
+common\Constants.class
+endpoints\Login.class
+webservices\LoginService.class
+endpoints\UserEndPoints.class
 database\DBConnection.class
-webservices\SpecialUser.class
+model\LoginModel.class
