@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Map;
 
 public class DBOperations {
 	static Connection con;
@@ -35,6 +36,19 @@ public class DBOperations {
 			e.printStackTrace();
 		}
 		return noOfRowsAffected;
+	}
+	
+	public int callProcedure(String procName){
+		return 0;
+		/*Statement stmt = con.prepareCall("{call GET_SUPPLIER_OF_COFFEE(?, ?)}");
+
+		stmt.setString(1, "");
+		stmt.registerOutParameter(2, Types.VARCHAR);
+		stmt.executeQuery();
+
+		String supplierName = cs.getString(2);
+		return 0;*/
+		
 	}
 	
 }
