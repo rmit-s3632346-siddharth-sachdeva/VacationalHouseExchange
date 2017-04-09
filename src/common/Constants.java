@@ -20,5 +20,12 @@ public interface Constants {
 	public static final String discounts = "longStayDiscount";
 	public static final String cardNo = "cardDetails";
 	public static final String amount = "amount";
+<<<<<<< HEAD
 
+=======
+	public static final String loggedInEmail = "loggedInEmail";
+	public static final String availableFrom = "availableFrom";
+	public static final String availableTo = "availableTo";
+	public static final String minOccupierRating = "minOccupierRating";
+>>>>>>> ece56423054984420cdbf362deb3d38a125abf24
 }

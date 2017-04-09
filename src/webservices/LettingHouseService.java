@@ -24,10 +24,10 @@ public class LettingHouseService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			String loggedInEmail = requestObject.get("loggedInEmail").toString();
-			String availableFrom = requestObject.get("availableFrom").toString();
-			String availableTo = requestObject.get("availableTo").toString();
-			String minOccupierRating = requestObject.get("minOccupierRating").toString();
+			String loggedInEmail = requestObject.get(Constants.loggedInEmail).toString();
+			String availableFrom = requestObject.get(Constants.availableFrom).toString();
+			String availableTo = requestObject.get(Constants.availableTo).toString();
+			String minOccupierRating = requestObject.get(Constants.minOccupierRating).toString();
 			statusCode = lettingHouseModel.lettingHouse(loggedInEmail, availableFrom, availableTo, minOccupierRating);
 			responseObject = new JSONObject();
 			responseObject.put(Constants.statusCode, statusCode);
