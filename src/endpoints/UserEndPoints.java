@@ -2,6 +2,8 @@ package endpoints;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+
+import webservices.EditHouseDetailsService;
 import webservices.LoginService;
 import webservices.RegisterService;
 
@@ -22,4 +24,10 @@ public class UserEndPoints {
 	public RegisterService registerEndPoint() {
 		return new RegisterService();
 	}
+	
+	@Path("/edithousedetails")
+	public EditHouseDetailsService editHouseDetails() {
+		return new EditHouseDetailsService();
+	}
+	
 }

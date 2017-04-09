@@ -54,7 +54,10 @@ public class RegisterService {
 			statusCode = "1";
 		}
 
-		return Response.ok().entity(statusCode).header("Access-Control-Allow-Origin", "*")
+		JSONObject responseObject = new JSONObject();
+		responseObject.put(Constants.statusCode, statusCode);
+
+		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
 
 	}

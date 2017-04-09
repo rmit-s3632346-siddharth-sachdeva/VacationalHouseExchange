@@ -54,7 +54,7 @@ public class RegisterModel {
 	}
 
 	public String settingAvailability(String emailId) {
-		sqlQuery = "Insert into Letting_User_House (emailId, availableFrom, availableTo, minOccupierRating) values ('"
+		sqlQuery = "Insert into Letting_User_House_Availability (email_Id, available_from, available_to, min_occupier_rating) values ('"
 				+ emailId + "','','','')";
 		int resultSet = dbOperations.updateData(sqlQuery);
 
@@ -63,7 +63,8 @@ public class RegisterModel {
 		else
 			statusCode = "0";
 
-		return statusCode;
+		return statusCode;	
+		
 	}
 
 }
