@@ -38,4 +38,17 @@ public class DBOperations {
 		return noOfRowsAffected;
 	}
 	
+	public int callProcedure(String procName){
+		return 0;
+		/*Statement stmt = con.prepareCall("{call GET_SUPPLIER_OF_COFFEE(?, ?)}");
+
+		stmt.setString(1, "");
+		stmt.registerOutParameter(2, Types.VARCHAR);
+		stmt.executeQuery();
+
+		String supplierName = cs.getString(2);
+		return 0;*/
+		
+	}
+	
 }
