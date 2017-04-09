@@ -2,6 +2,7 @@ package common;
 
 public interface Constants {
 
+	public static String statusCode = "statusCode";
 	public static final String username = "fullName";
 	public static final String password = "password";
 	public static final String emailId = "emailId";
@@ -19,4 +20,5 @@ public interface Constants {
 	public static final String discounts = "longStayDiscount";
 	public static final String cardNo = "cardDetails";
 	public static final String amount = "amount";
+
 }

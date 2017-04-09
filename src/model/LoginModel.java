@@ -26,6 +26,7 @@ public class LoginModel {
 		}
 		}catch(SQLException se){
 			se.printStackTrace();
+			statusCode ="1";
 		}
 		return statusCode;
 	}

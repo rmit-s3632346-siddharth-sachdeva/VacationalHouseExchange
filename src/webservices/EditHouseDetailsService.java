@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import common.Constants;
+import model.EditHouseDetailsModel;
 import model.RegisterModel;
 
 public class EditHouseDetailsService {
