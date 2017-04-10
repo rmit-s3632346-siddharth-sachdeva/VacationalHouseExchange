@@ -2,8 +2,8 @@ package common;
 
 public interface Constants {
 
-	public static String statusCode = "statusCode";
-	public static final String username = "username";
+	public static final String statusCode = "statusCode";
+	public static final String fullname = "fullName";
 	public static final String password = "password";
 	public static final String emailId = "emailId";
 	public static final String phoneNo = "phoneNo";

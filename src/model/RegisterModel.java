@@ -7,9 +7,9 @@ public class RegisterModel {
 	DBOperations dbOperations = new DBOperations();
 	String response = null, sqlQuery = "";
 
-	public String register(String username, String password, String emailId, String phoneNo) {
+	public String register(String fullname, String password, String emailId, String phoneNo) {
 
-		sqlQuery = "insert into User (username, password, emailId, phoneNo) values ('" + username + "','" + password
+		sqlQuery = "insert into User (full_name, password, email_Id, phone_no) values ('" + fullname + "','" + password
 				+ "','" + emailId + "'," + phoneNo + ")";
 		int resultSet = dbOperations.updateData(sqlQuery);
 
@@ -41,7 +41,7 @@ public class RegisterModel {
 	}
 
 	public String paymentDetails(String emailId, String cardNo, String amount) {
-		sqlQuery = "Insert into Payment_Details (emailId, cardNo, amount) values ('" + emailId + "','" + cardNo + "','"
+		sqlQuery = "Insert into Payment_Details (email_id, card_no, amount) values ('" + emailId + "','" + cardNo + "','"
 				+ amount + "')";
 		int resultSet = dbOperations.updateData(sqlQuery);
 

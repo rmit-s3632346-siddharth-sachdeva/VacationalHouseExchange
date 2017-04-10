@@ -24,10 +24,11 @@ public class RegisterService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			statusCode = registerModel.register(requestObject.get(Constants.username).toString(),
+			statusCode = registerModel.register(requestObject.get(Constants.fullname).toString(),
 					requestObject.get(Constants.password).toString(), requestObject.get(Constants.emailId).toString(),
 					requestObject.get(Constants.phoneNo).toString());
 			if (statusCode.equals("0")) {
+				logger.info("successful entry in User table: " + requestObject.get(Constants.emailId).toString());
 				statusCode = registerModel.registerHouseDetails(requestObject.get(Constants.emailId).toString(),
 						requestObject.get(Constants.address).toString(), requestObject.get(Constants.city).toString(),
 						requestObject.get(Constants.suburb).toString(),
@@ -39,11 +40,17 @@ public class RegisterService {
 						requestObject.get(Constants.points).toString(),
 						requestObject.get(Constants.discounts).toString());
 				if (statusCode.equals("0")) {
+					logger.info("successful entry in House_Details table: "
+							+ requestObject.get(Constants.emailId).toString());
 					statusCode = registerModel.paymentDetails(requestObject.get(Constants.emailId).toString(),
 							requestObject.get(Constants.cardNo).toString(),
 							requestObject.get(Constants.amount).toString());
 					if (statusCode.equals("0")) {
+						logger.info("successful entry in Payment_Details table: "
+								+ requestObject.get(Constants.emailId).toString());
 						statusCode = registerModel.settingAvailability(requestObject.get(Constants.emailId).toString());
+						logger.info("Letting_User_House_Availability statusCode: " + statusCode + " : "
+								+ requestObject.get(Constants.emailId).toString());
 					}
 				}
 			}

@@ -24,7 +24,7 @@ public class EditHouseDetailsService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			statusCode = editHouseDetailsModel.editPersonalDetails(requestObject.get(Constants.username).toString(),
+			statusCode = editHouseDetailsModel.editPersonalDetails(requestObject.get(Constants.fullname).toString(),
 					requestObject.get(Constants.password).toString(), requestObject.get(Constants.emailId).toString(),
 					requestObject.get(Constants.phoneNo).toString());
 			if (statusCode.equals("0")) {
