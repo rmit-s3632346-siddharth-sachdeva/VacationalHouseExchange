@@ -24,4 +24,5 @@ public interface Constants {
 	public static final String availableFrom = "availableFrom";
 	public static final String availableTo = "availableTo";
 	public static final String minOccupierRating = "minOccupierRating";
+	public static final Object house_key = "house_key";
 }

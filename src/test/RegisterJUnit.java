@@ -8,7 +8,7 @@ import model.RegisterModel;
 public class RegisterJUnit extends TestCase {
 
 	RegisterModel registerModel;
-	String emailId = "s3636678@student.rmit.edu.au", statusCode;
+	String emailId = System.currentTimeMillis()+"@y.com", statusCode;
 
 	public void setUp() {
 		registerModel = new RegisterModel();

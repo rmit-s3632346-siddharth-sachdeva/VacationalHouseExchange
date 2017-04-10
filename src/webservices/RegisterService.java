@@ -15,14 +15,15 @@ public class RegisterService {
 	RegisterModel registerModel = new RegisterModel();
 	String statusCode = "0";
 	final static Logger logger = Logger.getLogger(LoginService.class);
+	JSONObject responseObject = new JSONObject();
+	JSONObject requestObject = new JSONObject();
+	JSONParser parser = new JSONParser();
 
 	@POST
 	public Response register(String request) {
 
 		try {
 			logger.info(request);
-			JSONObject requestObject = new JSONObject();
-			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
 			statusCode = registerModel.register(requestObject.get(Constants.fullname).toString(),
 					requestObject.get(Constants.password).toString(), requestObject.get(Constants.emailId).toString(),
@@ -61,9 +62,7 @@ public class RegisterService {
 			statusCode = "1";
 		}
 
-		JSONObject responseObject = new JSONObject();
 		responseObject.put(Constants.statusCode, statusCode);
-
 		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
 

@@ -10,7 +10,7 @@ public class RegisterModel {
 	public String register(String fullname, String password, String emailId, String phoneNo) {
 
 		sqlQuery = "insert into User (full_name, password, email_Id, phone_no) values ('" + fullname + "','" + password
-				+ "','" + emailId + "'," + phoneNo + ")";
+				+ "','" + emailId + "','" + phoneNo + "')";
 		int resultSet = dbOperations.updateData(sqlQuery);
 
 		if (resultSet == 0)
