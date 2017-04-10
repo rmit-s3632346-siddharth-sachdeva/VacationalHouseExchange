@@ -3,7 +3,7 @@ package common;
 public interface Constants {
 
 	public static String statusCode = "statusCode";
-	public static final String username = "fullName";
+	public static final String username = "username";
 	public static final String password = "password";
 	public static final String emailId = "emailId";
 	public static final String phoneNo = "phoneNo";
@@ -20,12 +20,9 @@ public interface Constants {
 	public static final String discounts = "longStayDiscount";
 	public static final String cardNo = "cardDetails";
 	public static final String amount = "amount";
-<<<<<<< HEAD
-
-=======
 	public static final String loggedInEmail = "loggedInEmail";
 	public static final String availableFrom = "availableFrom";
 	public static final String availableTo = "availableTo";
 	public static final String minOccupierRating = "minOccupierRating";
->>>>>>> ece56423054984420cdbf362deb3d38a125abf24
+
 }
