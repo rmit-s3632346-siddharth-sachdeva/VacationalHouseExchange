@@ -4,33 +4,14 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 import model.LettingHouseModel;
-import model.LoginModel;
 
-public class JunitTest extends TestCase {
+public class LettingHouseTest extends TestCase {
 	
-	LoginModel loginModel;
 	LettingHouseModel lettingHouseModel;
 	String statusCode = "1";
+	
 	public void setUp(){
-		loginModel = new LoginModel();
 		lettingHouseModel = new LettingHouseModel();
-	}
-	
-	@Test
-	public void testLoginPass(){
-		String testUsername = "s3632346@student.rmit.edu.au";
-		String testPassword = "pass123#";
-		statusCode = loginModel.loginModel(testUsername, testPassword);
-		assertEquals("0", statusCode);
-	}
-	
-	@Test
-	public void testLoginFail(){
-
-		String testUsername = "s3632346@student.rmit.edu.au";
-		String testPassword = "LOL!!";
-		statusCode = loginModel.loginModel(testUsername, testPassword);
-		assertEquals("1", statusCode);
 	}
 	
 	@Test
@@ -52,5 +33,6 @@ public class JunitTest extends TestCase {
 		String statusCode = lettingHouseModel.lettingHouse(testEmailId, testAvailableFrom, testAvailableTo, testMinOccupierRating);
 		assertEquals("1", statusCode);
 	}
+
 
 }
