@@ -4,6 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import webservices.EditHouseDetailsService;
+//import webservices.EditHouseDetailsService;
 import webservices.LoginService;
 import webservices.RegisterService;
 

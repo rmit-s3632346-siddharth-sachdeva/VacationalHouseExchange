@@ -23,10 +23,10 @@ public class LoginService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			String username = requestObject.get(Constants.username).toString();
+			String emailId = requestObject.get(Constants.emailId).toString();
 			String password = requestObject.get(Constants.password).toString();
-			logger.info("trying login operation for user:"+username);
-			statusCode = loginModel.loginModel(username, password);
+			logger.info("trying login operation for user:"+emailId);
+			statusCode = loginModel.loginModel(emailId, password);
 			responseObject = new JSONObject();
 			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {

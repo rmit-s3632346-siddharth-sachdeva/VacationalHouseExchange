@@ -10,9 +10,9 @@ public class LoginModel {
 	DBOperations dbOperations = new DBOperations();
 	String response = null;
 	
-	public String loginModel(String username, String password){
+	public String loginModel(String emailId, String password){
 		try{
-		String sqlQuery = "SELECT 0 FROM User WHERE username='" + username + "' AND password='" + password + "';";
+		String sqlQuery = "SELECT 0 FROM User WHERE username='" + emailId + "' AND password='" + password + "';";
 		ResultSet resultSet = dbOperations.getData(sqlQuery);
 
 		while (resultSet.next()) {
