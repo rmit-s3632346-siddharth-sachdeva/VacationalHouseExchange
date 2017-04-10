@@ -17,7 +17,7 @@ public class LoginTest extends TestCase {
 	@Test
 	public void testLoginPass(){
 		String testUsername = "s3632346@student.rmit.edu.au";
-		String testPassword = "pass123#";
+		String testPassword = "e763a2afeb4ffc5372345293d65308236c5de7575f766ce33d5e493e62d614de";
 		statusCode = loginModel.loginModel(testUsername, testPassword);
 		assertEquals("0", statusCode);
 	}
