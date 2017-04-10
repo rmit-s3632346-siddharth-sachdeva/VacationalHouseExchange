@@ -14,7 +14,7 @@ public class JunitTest extends TestCase {
 	public void setUp(){
 		loginModel = new LoginModel();
 		lettingHouseModel = new LettingHouseModel();
-	}
+	}	
 	
 	@Test
 	public void testLoginPass(){
