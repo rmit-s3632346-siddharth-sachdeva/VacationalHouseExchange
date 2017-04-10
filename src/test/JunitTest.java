@@ -18,7 +18,7 @@ public class JunitTest extends TestCase {
 	
 	@Test
 	public void testLoginPass(){
-		String testUsername = "s3632346";
+		String testUsername = "s3632346@student.rmit.edu.au";
 		String testPassword = "pass123#";
 		statusCode = loginModel.loginModel(testUsername, testPassword);
 		assertEquals("0", statusCode);
@@ -27,7 +27,7 @@ public class JunitTest extends TestCase {
 	@Test
 	public void testLoginFail(){
 
-		String testUsername = "s3632346";
+		String testUsername = "s3632346@student.rmit.edu.au";
 		String testPassword = "LOL!!";
 		statusCode = loginModel.loginModel(testUsername, testPassword);
 		assertEquals("1", statusCode);
@@ -35,7 +35,7 @@ public class JunitTest extends TestCase {
 	
 	@Test
 	public void testLettingHousePass(){
-		String testEmailId = "demouser";
+		String testEmailId = "demouser@test.com";
 		String testAvailableFrom = "20-10-2017";
 		String testAvailableTo = "20-12-2017";
 		String testMinOccupierRating = "1000";
