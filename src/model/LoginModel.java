@@ -12,7 +12,7 @@ public class LoginModel {
 	
 	public String loginModel(String emailId, String password){
 		try{
-		String sqlQuery = "SELECT 0 FROM User WHERE username='" + emailId + "' AND password='" + password + "';";
+		String sqlQuery = "SELECT 0 FROM User WHERE email_id='" + emailId + "' AND password='" + password + "';";
 		ResultSet resultSet = dbOperations.getData(sqlQuery);
 
 		while (resultSet.next()) {
