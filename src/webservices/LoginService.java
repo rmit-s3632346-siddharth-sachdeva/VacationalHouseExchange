@@ -23,8 +23,8 @@ public class LoginService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			String username = requestObject.get("username").toString();
-			String password = requestObject.get("password").toString();
+			String username = requestObject.get(Constants.username).toString();
+			String password = requestObject.get(Constants.password).toString();
 			logger.info("trying login operation for user:"+username);
 			statusCode = loginModel.loginModel(username, password);
 			responseObject = new JSONObject();
