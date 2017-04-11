@@ -27,11 +27,14 @@ public class LoginService {
 			String password = requestObject.get(Constants.password).toString();
 			logger.info("trying login operation for user:"+emailId);
 			statusCode = loginModel.loginModel(emailId, password);
+			if(statusCode == "0"){
+				logger.info("User :"+emailId+" logged in successfully.");
+			}
 			responseObject = new JSONObject();
 			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getStackTrace());
+			logger.error(e);
 			statusCode = "1";
 		}
 

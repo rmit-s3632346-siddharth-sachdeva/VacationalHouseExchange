@@ -34,5 +34,14 @@ public class LettingHouseTest extends TestCase {
 		assertEquals("1", statusCode);
 	}
 
+	@Test
+	public void testLettingHouseNotPassingSufficientDataFail(){
+		//We are not passing email id which is the required field.
+		String testAvailableFrom = "20-10-2017";
+		String testAvailableTo = "20-12-2017";
+		String testMinOccupierRating = "1000";
+		String statusCode = lettingHouseModel.lettingHouse(null, testAvailableFrom, testAvailableTo, testMinOccupierRating);
+		assertEquals("1", statusCode);
+	}
 
 }
