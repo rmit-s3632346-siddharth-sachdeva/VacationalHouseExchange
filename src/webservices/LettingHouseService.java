@@ -63,6 +63,8 @@ public class LettingHouseService {
 			e.printStackTrace();
 			logger.error(e.getStackTrace());
 			statusCode = "1";
+			responseObject.put(Constants.statusCode, statusCode);
+			responseObject.put(Constants.error_message, "Something went wrong...");
 		}
 
 		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
