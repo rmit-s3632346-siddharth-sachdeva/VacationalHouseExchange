@@ -1,14 +1,22 @@
 package test;
 
+import java.util.Iterator;
+import java.util.Set;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.junit.Test;
 
 import junit.framework.TestCase;
 import model.RegisterModel;
+import webservices.RegisterService;
 
 public class RegisterJUnit extends TestCase {
 
 	RegisterModel registerModel;
-	String emailId = System.currentTimeMillis()+"@y.com", statusCode;
+	RegisterService registerService;
+	String emailId = System.currentTimeMillis() + "@y.com", statusCode;
 
 	public void setUp() {
 		registerModel = new RegisterModel();
@@ -16,15 +24,15 @@ public class RegisterJUnit extends TestCase {
 
 	@Test
 	public void testregisterWithNewUser() {
-		String fullname = "rachita", password = "rachita123#", phoneNo = "0416857086";
+		String fullname = null, password = "rachita123#", phoneNo = "0416857086";
 		statusCode = registerModel.register(fullname, password, emailId, phoneNo);
 		assertEquals("0", statusCode);
 	}
 
 	@Test
 	public void testEnteringHouseDetails() {
-		String address = "38 Wests Road", city = "Melbourne", suburb = "Maribyrnong", distance = "10km",
-				publicTransport = "bus, train, tram", noOfRooms = "6", airConditioning = "YES", swimmingPool = "YES",
+		String address = "38 Wests Road", city = null, suburb = "Maribyrnong", distance = "10km",
+				publicTransport = "bus, train, tram", noOfRooms = "6", airConditioning = null, swimmingPool = null,
 				points = "50", discounts = "10";
 		statusCode = registerModel.registerHouseDetails(emailId, address, city, suburb, distance, publicTransport,
 				noOfRooms, airConditioning, swimmingPool, points, discounts);
@@ -43,5 +51,35 @@ public class RegisterJUnit extends TestCase {
 		statusCode = registerModel.settingAvailability(emailId);
 		assertEquals("0", statusCode);
 	}
+
+	/*@SuppressWarnings("unchecked")
+	@Test
+	public void testIsNullHandling() throws ParseException {
+		try
+		{String request = "{\"fullName\":null,\"emailId\":\"rai3ta\",\"address\":\"kk\","
+				+ "\"password\":\"345456\",\"city\":\"kik\",\"suburb\":\"kpoj\",\"distanceCityCenter\""
+				+ ":\"lkol\",\"numberOfRooms\":\"jiojo\",\"airConditioning\":\"Yes\",\"swimmingPool\":"
+				+ "\"Yes\",\"pointNeededWeek\":\"mlklk\",\"longStayDiscount\":\"nkn\",\"cardDetails\":"
+				+ "\"knk\",\"amount\":\"1000\",\"availabilityPublicTransport\":\"yes\",\"phoneNo\":" 
+				+ "\"123456789\"}";
+		
+		JSONObject requestObject = new JSONObject();
+		JSONParser parser = new JSONParser();
+		requestObject = (JSONObject) parser.parse(request);
+		
+		for(Object key : requestObject.keySet()){
+			if(requestObject.get(key)==null){
+				requestObject.remove(key);
+				requestObject.put(key, "");
+			}
+		}
+		for(Object key : requestObject.keySet()) {
+			System.out.println(key.toString()+" : "+requestObject.get(key));
+		}
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}*/
 
 }

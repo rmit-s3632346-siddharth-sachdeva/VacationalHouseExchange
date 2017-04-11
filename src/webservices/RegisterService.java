@@ -24,7 +24,6 @@ public class RegisterService {
 
 		try {
 			logger.info(request);
-			requestObject = (JSONObject) parser.parse(request);
 			statusCode = registerModel.register(requestObject.get(Constants.fullname).toString(),
 					requestObject.get(Constants.password).toString(), requestObject.get(Constants.emailId).toString(),
 					requestObject.get(Constants.phoneNo).toString());
