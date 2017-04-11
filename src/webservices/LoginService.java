@@ -34,7 +34,7 @@ public class LoginService {
 			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getStackTrace());
+			logger.error(e);
 			statusCode = "1";
 		}
 

@@ -61,7 +61,7 @@ public class LettingHouseService {
 			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getStackTrace());
+			logger.error(e);
 			statusCode = "1";
 			responseObject.put(Constants.statusCode, statusCode);
 			responseObject.put(Constants.error_message, "Something went wrong...");
