@@ -4,6 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 import webservices.EditHouseDetailsService;
+import webservices.ForgetPassowordService;
 //import webservices.EditHouseDetailsService;
 import webservices.LoginService;
 import webservices.RegisterService;
@@ -26,9 +27,14 @@ public class UserEndPoints {
 		return new RegisterService();
 	}
 	
-	@Path("/edithousedetails")
+	@Path("/editHouseDetails")
 	public EditHouseDetailsService editHouseDetails() {
 		return new EditHouseDetailsService();
+	}
+	
+	@Path("/forgetPassoword")
+	public ForgetPassowordService forgetPassoword() {
+		return new ForgetPassowordService();
 	}
 	
 }
