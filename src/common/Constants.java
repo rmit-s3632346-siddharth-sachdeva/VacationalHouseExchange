@@ -26,4 +26,11 @@ public interface Constants {
 	public static final String minOccupierRating = "minOccupierRating";
 	public static final Object house_key = "house_key";
 	public static final String error_message = "error_message";
+	public static final String review = "review";
+	public static final String rating = "ratings";
+	public static final String requesterEmailId = "requesterEmailId";
+	public static final String averageRating = "averageRating";
+	public static final String ownerEmailId = "ownerEmailId";
+	public static final String credits = "credits";
+	public static final String pointsRequired = "points_required";
 }
