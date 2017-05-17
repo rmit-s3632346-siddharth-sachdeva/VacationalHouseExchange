@@ -14,7 +14,7 @@ public class RegisterService {
 
 	RegisterModel registerModel = new RegisterModel();
 	String statusCode = "0";
-	final static Logger logger = Logger.getLogger(LoginService.class);
+	final static Logger logger = Logger.getLogger(RegisterService.class);
 	JSONObject responseObject = new JSONObject();
 	JSONObject requestObject = new JSONObject();
 	JSONParser parser = new JSONParser();
@@ -23,6 +23,7 @@ public class RegisterService {
 	public Response register(String request) {
 
 		try {
+			requestObject = (JSONObject) parser.parse(request);
 			logger.info(request);
 			statusCode = registerModel.register(requestObject.get(Constants.fullname).toString(),
 					requestObject.get(Constants.password).toString(), requestObject.get(Constants.emailId).toString(),
