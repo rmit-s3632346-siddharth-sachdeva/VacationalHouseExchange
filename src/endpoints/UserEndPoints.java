@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import webservices.EditHouseDetailsService;
 //import webservices.EditHouseDetailsService;
 import webservices.LoginService;
+import webservices.LogoutService;
 import webservices.RegisterService;
 
 @Path("/userendpoints")
@@ -29,6 +30,11 @@ public class UserEndPoints {
 	@Path("/edithousedetails")
 	public EditHouseDetailsService editHouseDetails() {
 		return new EditHouseDetailsService();
+	}
+	
+	@Path("/logout")
+	public LogoutService logoutEndPoint() {
+		return new LogoutService();
 	}
 	
 }
