@@ -25,18 +25,11 @@ public class UserEndPoints {
 	public EditHouseDetailsService editHouseDetails() {
 		return new EditHouseDetailsService();
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> b260bd902324c310f6f06064d203476b1c131d50
 	@Path("/logout")
 	public LogoutService logoutEndPoint() {
 		return new LogoutService();
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> b260bd902324c310f6f06064d203476b1c131d50
 	@Path("/forgetPassoword")
 	public ForgetPassowordService forgetPassoword() {
 		return new ForgetPassowordService();

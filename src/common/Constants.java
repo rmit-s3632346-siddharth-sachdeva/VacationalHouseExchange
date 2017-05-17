@@ -28,17 +28,9 @@ public interface Constants {
 	public static final String error_message = "error_message";
 	public static final Object review = "review";
 	public static final Object rating = "rating";
-<<<<<<< HEAD
 	public static final String WAITING_STATUS = "waiting";
 	public static final Object OWNER_EMAIL = "ownerEmailId";
 	public static final Object REQUESTER_EMAIL = "requesterEmailId";
-=======
-
-	public static final String WAITING_STATUS = "waiting";
-	public static final Object OWNER_EMAIL = "ownerEmailId";
-	public static final Object REQUESTER_EMAIL = "requesterEmailId";
-	
->>>>>>> b260bd902324c310f6f06064d203476b1c131d50
 	public static final String requesterEmailId = "requesterEmailId";
 	public static final String averageRating = "averageRating";
 	public static final String ownerEmailId = "ownerEmailId";

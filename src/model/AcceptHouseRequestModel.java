@@ -3,8 +3,6 @@ package model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression;
-
 import common.Constants;
 import database.DBOperations;
 
