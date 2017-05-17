@@ -52,34 +52,4 @@ public class RegisterJUnit extends TestCase {
 		assertEquals("0", statusCode);
 	}
 
-	/*@SuppressWarnings("unchecked")
-	@Test
-	public void testIsNullHandling() throws ParseException {
-		try
-		{String request = "{\"fullName\":null,\"emailId\":\"rai3ta\",\"address\":\"kk\","
-				+ "\"password\":\"345456\",\"city\":\"kik\",\"suburb\":\"kpoj\",\"distanceCityCenter\""
-				+ ":\"lkol\",\"numberOfRooms\":\"jiojo\",\"airConditioning\":\"Yes\",\"swimmingPool\":"
-				+ "\"Yes\",\"pointNeededWeek\":\"mlklk\",\"longStayDiscount\":\"nkn\",\"cardDetails\":"
-				+ "\"knk\",\"amount\":\"1000\",\"availabilityPublicTransport\":\"yes\",\"phoneNo\":" 
-				+ "\"123456789\"}";
-		
-		JSONObject requestObject = new JSONObject();
-		JSONParser parser = new JSONParser();
-		requestObject = (JSONObject) parser.parse(request);
-		
-		for(Object key : requestObject.keySet()){
-			if(requestObject.get(key)==null){
-				requestObject.remove(key);
-				requestObject.put(key, "");
-			}
-		}
-		for(Object key : requestObject.keySet()) {
-			System.out.println(key.toString()+" : "+requestObject.get(key));
-		}
-		}
-		catch(Exception ex){
-			ex.printStackTrace();
-		}
-	}*/
-
 }
