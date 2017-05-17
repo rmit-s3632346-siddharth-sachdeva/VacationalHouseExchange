@@ -2,7 +2,6 @@ package endpoints;
 
 import javax.ws.rs.Path;
 
-import webservices.LettingHouseService;
 import webservices.ViewHouseService;
 
 @Path("/viewHouseEndPoints")
