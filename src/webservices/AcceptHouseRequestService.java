@@ -16,7 +16,6 @@ public class AcceptHouseRequestService {
 	String statusCode = "1";
 	AcceptHouseRequestModel acceptHouseRequestModel = new AcceptHouseRequestModel();
 	final static Logger logger = Logger.getLogger(AcceptHouseRequestService.class);
-	
 
 	@POST
 	public Response acceptHouseRequest(String request){
@@ -26,14 +25,8 @@ public class AcceptHouseRequestService {
 			JSONObject requestObject = new JSONObject();
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
-			
-			String requesterEmailId = requestObject.get(Constants.requesterEmailId).toString();
 			String ownerEmailID = requestObject.get(Constants.ownerEmailId).toString();
-			
-			statusCode = acceptHouseRequestModel.acceptHouseRequest(requesterEmailId, ownerEmailID);
-			
-			
-			
+			statusCode = acceptHouseRequestModel.acceptHouseRequest(ownerEmailID);
 		}catch(Exception e){
 			e.printStackTrace();
 			statusCode = "1";
