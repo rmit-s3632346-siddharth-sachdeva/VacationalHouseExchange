@@ -14,7 +14,7 @@ public class BookHouseModel {
 
 	public String bookHouseModel(String ownerEmailId , String requesterEmailID){
 		try{
-			String sqlQuery = "SELECT 0 FROM Book_House_Table WHERE ownerEmailId='" + ownerEmailId + ";";
+			String sqlQuery = "SELECT 0 FROM Book_House WHERE ownerEmailId='" + ownerEmailId + "';";
 			ResultSet resultSet = dbOperations.getData(sqlQuery);
 
 			while (resultSet.next()) {
@@ -22,11 +22,11 @@ public class BookHouseModel {
 			}
 
 			if (response != null && response.equalsIgnoreCase("0")) {
-				String updateRequester = "Update Book_House_Table set requesterEmailId = '"+requesterEmailID+"' where ownerEmailId = '"+ownerEmailId+"';";
+				String updateRequester = "Update Book_House set requesterEmailId = '"+requesterEmailID+"' where ownerEmailId = '"+ownerEmailId+"';";
 				resultInsert = dbOperations.updateData(updateRequester);
 				
 			} else {
-				String insertBooking = "Insert into Book_House_Table (ownerEmailId, requesterEmailId) values('"+ownerEmailId+"', '"+requesterEmailID+"');";
+				String insertBooking = "Insert into Book_House (ownerEmailId, requesterEmailId) values('"+ownerEmailId+"', '"+requesterEmailID+"');";
 				resultInsert = dbOperations.updateData(insertBooking);
 			}
 			if(resultInsert == 1){

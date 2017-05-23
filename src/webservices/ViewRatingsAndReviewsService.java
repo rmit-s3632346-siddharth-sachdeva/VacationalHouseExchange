@@ -27,11 +27,13 @@ public class ViewRatingsAndReviewsService {
 			
 			String emailId = requestObject.get(Constants.emailId).toString();
 			logger.info("viewRatingsAndReviews Service called...");
-			statusCode = viewRatingsAndReviewsModel.viewRatingsAndReviews(emailId).toString();
+			responseObject = viewRatingsAndReviewsModel.viewRatingsAndReviews(emailId);
+			statusCode = viewRatingsAndReviewsModel.statusCode;
 		}catch(Exception e){
 			e.printStackTrace();
 			logger.info("Something went wrong...:"+e.getMessage());
 		}
+		responseObject.put(Constants.statusCode, statusCode);
 		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
 	}

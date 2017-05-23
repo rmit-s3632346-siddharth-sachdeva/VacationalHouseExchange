@@ -11,22 +11,12 @@ public class LogoutModel {
 	String response = null;
 	
 	public String logoutModel(String emailId){
-		try{
-		String sqlQuery = "update User set isLoggedIn='n' where email_id="+emailId;
-		ResultSet resultSet = dbOperations.getData(sqlQuery);
-
-		while (resultSet.next()) {
-			response = resultSet.getString("0");
-		}
-
-		if (response != null && response.equalsIgnoreCase("0")) {
+		String sqlQuery = "update User set isLoggedIn='n' where email_id= '"+emailId+"'";
+		int rows = dbOperations.updateData(sqlQuery);
+		if(rows >0){
 			statusCode = "0";
-		} else {
+		}else{
 			statusCode = "1";
-		}
-		}catch(SQLException se){
-			se.printStackTrace();
-			statusCode ="1";
 		}
 		return statusCode;
 	}

@@ -1,6 +1,8 @@
 package model;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 
@@ -8,33 +10,48 @@ import common.Constants;
 import database.DBOperations;
 
 public class ViewRatingsAndReviewsModel {
-	private String statusCode = "1";
+	public static String statusCode = "1";
 	private DBOperations dbOperations = new DBOperations();
+	//JSONArray data = new JSONArray();
+	List<JSONObject> data = new ArrayList<>();
 	
-	public JSONObject viewRatingsAndReviews(String houseOwnerEmailId){
-		JSONObject data = new JSONObject();
-		
-		try{
-			String sqlQuery = "Select Review, Rating from House_Details WHERE email_id = '"+houseOwnerEmailId+"'";
+	JSONObject finalData = new JSONObject();
+
+	public JSONObject viewRatingsAndReviews(String houseOwnerEmailId) {
+
+		try {
+			String sqlQuery = "Select Review, Rating from House_Review_Rating WHERE Email = '" + houseOwnerEmailId
+					+ "'";
 			ResultSet resultSet = dbOperations.getData(sqlQuery);
 			int sumOfRatings = 0;
 			int numberOfRatings = 0;
-			while(resultSet.next()){
-				data.put(Constants.review, resultSet.getString("review"));
-				data.put(Constants.rating, resultSet.getString("rating"));
+			int ctr = 0;
+			while (resultSet.next()) {
+				JSONObject currentData = new JSONObject();
+				currentData.put(Constants.review, resultSet.getString("review"));
+				currentData.put(Constants.rating, resultSet.getString("rating"));
 				numberOfRatings++;
-				sumOfRatings += Integer.parseInt(resultSet.getString("rating")); 
+				sumOfRatings += Integer.parseInt(resultSet.getString("rating"));
+				data.add(currentData);
 			}
-			statusCode ="0";
-			data.put(Constants.averageRating, String.valueOf(sumOfRatings/numberOfRatings));
-			data.put(Constants.statusCode, statusCode);
-		}catch(Exception e){
+			finalData.put(Constants.house_key, data);
+			statusCode = "0";
+			if (numberOfRatings > 0) {
+				finalData.put(Constants.averageRating, String.valueOf(sumOfRatings / numberOfRatings));
+				finalData.put(Constants.statusCode, statusCode);
+
+			} else {
+				statusCode = "1";
+				finalData.put(Constants.statusCode, statusCode);
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
-			statusCode ="1";
-			data.put(Constants.statusCode, statusCode);
+			statusCode = "1";
+			finalData.put(Constants.statusCode, statusCode);
 		}
-		
-		return data;
+
+		return finalData;
 	}
-	
+
 }

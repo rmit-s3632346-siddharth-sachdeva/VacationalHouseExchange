@@ -10,11 +10,12 @@ import org.json.simple.parser.JSONParser;
 import common.Constants;
 import model.BookHouseModel;
 import model.LoginModel;
+import model.RejectBookHouseRequestModel;
 
-public class BookHouseService {
+public class RejectBookRequestService {
 	String statusCode;
-	BookHouseModel bookHouseModel = new BookHouseModel();
-	final static Logger logger = Logger.getLogger(BookHouseService.class);
+	RejectBookHouseRequestModel rejectBookRequestModel = new RejectBookHouseRequestModel();
+	
 	@POST
 	public Response bookHouse(String request) {
 		JSONObject responseObject = null;
@@ -23,13 +24,11 @@ public class BookHouseService {
 			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
 			String ownerEmailId = requestObject.get(Constants.OWNER_EMAIL).toString();
-			String requesterEmailId = requestObject.get(Constants.REQUESTER_EMAIL).toString();
-			statusCode = bookHouseModel.bookHouseModel(ownerEmailId, requesterEmailId);
+			statusCode = rejectBookRequestModel.rejectBookingReqModel(ownerEmailId);
 			responseObject = new JSONObject();
 			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e);
 			statusCode = "1";
 		}
 		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
