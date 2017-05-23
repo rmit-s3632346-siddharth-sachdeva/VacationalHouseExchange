@@ -9,6 +9,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import common.Constants;
 import model.ViewHouseModel;
@@ -19,10 +20,17 @@ public class ViewHouseService {
 	final static Logger logger = Logger.getLogger(LoginService.class);
 	JSONObject responseObject = new JSONObject();
 	@POST
-	public Response viewHouse(){
+	public Response viewHouse(String request){
 		try
 		{
-			responseObject=viewHouseModel.viewHouses();
+			String emailID = "";
+			if(!request.equals("\"\"")){
+			JSONObject requestObject = new JSONObject();
+			JSONParser parser = new JSONParser();
+			requestObject = (JSONObject) parser.parse(request);
+			emailID=requestObject.get(Constants.emailId).toString();
+			}
+			responseObject=viewHouseModel.viewHouses(emailID);
 		}
 		catch(Exception ex){
 			ex.printStackTrace();

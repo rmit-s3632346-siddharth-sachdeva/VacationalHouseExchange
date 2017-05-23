@@ -2,6 +2,7 @@ package endpoints;
 
 import javax.ws.rs.Path;
 
+import webservices.AcceptHouseRequestService;
 import webservices.BookHouseService;
 import webservices.RejectBookRequestService;
 import webservices.ViewHouseRequestService;

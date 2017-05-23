@@ -12,7 +12,7 @@ import database.DBOperations;
 public class ViewHouseModel {
 
 	@SuppressWarnings({ "unchecked", "unused" })
-	public JSONObject viewHouses() {
+	public JSONObject viewHouses(String emailID) {
 		DBOperations dbOperations = new DBOperations();
 		String response = null;
 		ArrayList<JSONObject> responseObject = new ArrayList<>();
@@ -24,7 +24,12 @@ public class ViewHouseModel {
 					+ "House_Details.points_required, House_Details.discounts, Letting_User_House_Availability.available_from,"
 					+ "Letting_User_House_Availability.available_to, Letting_User_House_Availability.min_occupier_rating"
 					+ " from User join House_Details on User.email_id = House_Details.email_id "
-					+ "join Letting_User_House_Availability on User.email_id = Letting_User_House_Availability.email_id";
+					+ "join Letting_User_House_Availability on User.email_id = Letting_User_House_Availability.email_id"
+					+ " where House_Details.availabilityOfHouse = 'available' ";
+			if (emailID != null) {
+				sqlQuery += " and House_Details.points_required <= (select User.credits from User where User.email_id = '"
+						+ emailID + "') and User.email_id != '"+emailID+"' ";
+			}
 			ResultSet resultSet = dbOperations.getData(sqlQuery);
 			while (resultSet.next()) {
 				JSONObject jsonObject = new JSONObject();
@@ -45,7 +50,7 @@ public class ViewHouseModel {
 				jsonObject.put(Constants.availableTo, resultSet.getString("available_to"));
 				jsonObject.put(Constants.minOccupierRating, resultSet.getString("min_occupier_rating"));
 				responseObject.add(jsonObject);
-				
+
 			}
 			finalResponseObject.put(Constants.house_key, responseObject);
 			if (responseObject != null) {
