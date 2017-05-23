@@ -1,9 +1,11 @@
 package webservices;
 
+import javax.ws.rs.POST;
 import javax.ws.rs.core.Response;
 
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 import common.Constants;
 import model.ViewHouseRequestModel;
@@ -14,15 +16,27 @@ public class ViewHouseRequestService {
 	String statusCode = "1";
 	ViewHouseRequestModel viewHouseRequestModel = new ViewHouseRequestModel();
 	final static Logger logger = Logger.getLogger(ViewHouseRequestService.class);
-	
+	@POST
 	public Response viewHouseRequest(String request){
 		JSONObject responseObject = new JSONObject();
-		logger.info("ViewHouseRequestService called...");
+		JSONObject requestObject = new JSONObject();
 		try{
-			String ownerEmailId = responseObject.get(Constants.emailId).toString();
+		JSONParser parser = new JSONParser();
+		requestObject = (JSONObject) parser.parse(request);
+		logger.info("ViewHouseRequestService called...");
+	
+			String ownerEmailId = requestObject.get(Constants.ownerEmailId).toString();
 			String requesterEmailId = viewHouseRequestModel.viewHouseRequest(ownerEmailId);
 			
-			responseObject.put(Constants.requesterEmailId, requesterEmailId);
+			if(requesterEmailId == null || requesterEmailId.isEmpty()){
+				statusCode = "2";
+			}else{
+				responseObject.put(Constants.requesterEmailId, requesterEmailId);
+				statusCode = "0";
+			}
+			
+			
+			responseObject.put(Constants.statusCode, statusCode);
 			
 		}catch(Exception e){
 			e.printStackTrace();

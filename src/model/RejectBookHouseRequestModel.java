@@ -10,7 +10,7 @@ public class RejectBookHouseRequestModel {
 	DBOperations dbOperations = new DBOperations();
 	String response = null;
 	public String rejectBookingReqModel(String ownerEmailId){
-		String sqlQuery = "Delete from Book_House where"+Constants.ownerEmailId+" = '"+ownerEmailId+"';";
+		String sqlQuery = "Delete from Book_House where "+Constants.ownerEmailId+" = '"+ownerEmailId+"';";
 		int rows = dbOperations.updateData(sqlQuery);
 		if(rows>0){
 			String updateHouseStatus = "Update House_Details set availabilityOfHouse = '"+Constants.AVAILABLE_STATUS+"' where email_id = '"+ownerEmailId+"';";
