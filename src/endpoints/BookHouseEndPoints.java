@@ -23,6 +23,7 @@ public class BookHouseEndPoints {
 		return new AcceptHouseRequestService();
 	}
 	
+	
 	@Path("/viewHouseRequest")
 	public ViewHouseRequestService viewHouseRequestService() {
 		return new ViewHouseRequestService();

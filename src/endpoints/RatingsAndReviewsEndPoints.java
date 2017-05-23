@@ -13,6 +13,7 @@ public class RatingsAndReviewsEndPoints {
 		return new ReviewAndRatingService();
 	}
 	
+	
 	@Path("/viewRatingsAndReviews")
 	public ViewRatingsAndReviewsService viewRatingsAndReviewsService() {
 		return new ViewRatingsAndReviewsService();

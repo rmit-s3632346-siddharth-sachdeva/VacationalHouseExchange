@@ -13,6 +13,7 @@ import model.AcceptHouseRequestModel;
 
 public class AcceptHouseRequestService {
 	
+	
 	String statusCode = "1";
 	AcceptHouseRequestModel acceptHouseRequestModel = new AcceptHouseRequestModel();
 	final static Logger logger = Logger.getLogger(AcceptHouseRequestService.class);
