@@ -9,8 +9,8 @@ public class RegisterModel {
 
 	public String register(String fullname, String password, String emailId, String phoneNo) {
 
-		sqlQuery = "insert into User (full_name, password, email_Id, phone_no) values ('" + fullname + "','" + password
-				+ "','" + emailId + "','" + phoneNo + "')";
+		sqlQuery = "insert into User (full_name, password, email_Id, phone_no,credits) values ('" + fullname + "','" + password
+				+ "','" + emailId + "','" + phoneNo + "','1000')";
 		int resultSet = dbOperations.updateData(sqlQuery);
 
 		if (resultSet == 0)
@@ -26,10 +26,10 @@ public class RegisterModel {
 			String discounts) {
 
 		sqlQuery = "Insert into House_Details (email_id, address, city, suburb, distance_from_city, public_transport, "
-				+ "no_of_rooms, airconditioning, swiming_pool, points_required, discounts) values ('" + emailId + "','"
+				+ "no_of_rooms, airconditioning, swiming_pool, points_required, discounts, availabilityOfHouse) values ('" + emailId + "','"
 				+ address + "','" + city + "','" + suburb + "','" + distance + "','" + publicTransport + "','"
 				+ noOfRooms + "','" + airConditioning + "','" + swimmingPool + "','" + points + "','" + discounts
-				+ "')";
+				+ "','available')";
 		int resultSet = dbOperations.updateData(sqlQuery);
 
 		if (resultSet == 0)

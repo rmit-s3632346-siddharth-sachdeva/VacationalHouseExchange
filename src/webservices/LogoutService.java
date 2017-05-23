@@ -19,10 +19,10 @@ public class LogoutService {
 	
 	@POST
 	public Response logout(String request) {
-		JSONObject responseObject = null;
+		JSONObject responseObject = new JSONObject();
+		JSONObject requestObject = new JSONObject();
+		JSONParser parser = new JSONParser();
 		try {
-			JSONObject requestObject = new JSONObject();
-			JSONParser parser = new JSONParser();
 			requestObject = (JSONObject) parser.parse(request);
 			String emailId = requestObject.get(Constants.emailId).toString();
 			logger.info("trying logout operation for user:"+emailId);
@@ -30,16 +30,13 @@ public class LogoutService {
 			if(statusCode == "0"){
 				logger.info("User :"+emailId+" logged out successfully.");
 			}
-			responseObject = new JSONObject();
-			responseObject.put(Constants.statusCode, statusCode);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
 			statusCode = "1";
 		}
-
+		responseObject.put(Constants.statusCode, statusCode);
 		return Response.ok().entity(responseObject.toJSONString()).header("Access-Control-Allow-Origin", "*")
 				.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
 	}
-	
 }

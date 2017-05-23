@@ -29,7 +29,7 @@ public class ViewRatingsAndReviewsModel {
 			while (resultSet.next()) {
 				JSONObject currentData = new JSONObject();
 				currentData.put(Constants.review, resultSet.getString("review"));
-				currentData.put(Constants.rating, resultSet.getString("rating"));
+				currentData.put(Constants.ratings, resultSet.getString("rating"));
 				numberOfRatings++;
 				sumOfRatings += Integer.parseInt(resultSet.getString("rating"));
 				data.add(currentData);

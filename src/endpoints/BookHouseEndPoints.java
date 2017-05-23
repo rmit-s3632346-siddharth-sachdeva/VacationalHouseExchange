@@ -2,6 +2,7 @@ package endpoints;
 
 import javax.ws.rs.Path;
 
+import webservices.AcceptHouseRequestService;
 import webservices.BookHouseService;
 import webservices.RejectBookRequestService;
 
@@ -15,5 +16,9 @@ public class BookHouseEndPoints {
 	@Path("/rejectBookRequest")
 	public RejectBookRequestService rejectBookRequestEndPoint() {
 		return new RejectBookRequestService();
+	}
+	@Path("/acceptHouseRequest")
+	public AcceptHouseRequestService acceptHouseRequestEndPoint() {
+		return new AcceptHouseRequestService();
 	}
 }

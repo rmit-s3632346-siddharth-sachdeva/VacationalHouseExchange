@@ -26,13 +26,12 @@ public interface Constants {
 	public static final String minOccupierRating = "minOccupierRating";
 	public static final Object house_key = "house_key";
 	public static final String error_message = "error_message";
-
 	public static final String WAITING_STATUS = "waiting";
 	public static final Object OWNER_EMAIL = "ownerEmailId";
 	public static final Object REQUESTER_EMAIL = "requesterEmailId";
-
 	public static final String review = "review";
-	public static final String rating = "ratings";
+	public static final String ratings = "ratings";
+	public static final Object rating = "rating";
 	public static final String requesterEmailId = "requesterEmailId";
 	public static final String averageRating = "averageRating";
 	public static final String ownerEmailId = "ownerEmailId";

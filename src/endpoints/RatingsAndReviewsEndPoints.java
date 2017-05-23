@@ -17,6 +17,4 @@ public class RatingsAndReviewsEndPoints {
 	public ViewRatingsAndReviewsService viewRatingsAndReviewsService() {
 		return new ViewRatingsAndReviewsService();
 	}
-	
-	
 }
