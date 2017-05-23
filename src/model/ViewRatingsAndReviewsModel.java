@@ -23,8 +23,8 @@ public class ViewRatingsAndReviewsModel {
 			String sqlQuery = "Select Review, Rating from House_Review_Rating WHERE Email = '" + houseOwnerEmailId
 					+ "'";
 			ResultSet resultSet = dbOperations.getData(sqlQuery);
-			int sumOfRatings = 0;
-			int numberOfRatings = 0;
+			double sumOfRatings = 0;
+			double numberOfRatings = 0;
 			int ctr = 0;
 			while (resultSet.next()) {
 				JSONObject currentData = new JSONObject();
@@ -37,7 +37,9 @@ public class ViewRatingsAndReviewsModel {
 			finalData.put(Constants.house_key, data);
 			statusCode = "0";
 			if (numberOfRatings > 0) {
-				finalData.put(Constants.averageRating, String.valueOf(sumOfRatings / numberOfRatings));
+				double avg = sumOfRatings / numberOfRatings;
+				String formattedAvg = String.format("%.2f", avg);
+				finalData.put(Constants.averageRating, formattedAvg);
 				finalData.put(Constants.statusCode, statusCode);
 
 			} else {
