@@ -13,11 +13,11 @@ import javax.mail.internet.MimeMessage;
 public class SendEmail {
 	public static String statusCode = "0";
 
-	public static String sendEmail(String msg) {
+	public static String sendEmail(String msg, String emailID) {
 		String subject = "Forgot Password";
-		String username = "ginnichugh8@gmail.com";
-		String password = "ginni123#";
-		String to = "chugh.rachita@gmail.com";
+		String username = "****";
+		String password = "******";
+		String to = emailID;
 
 	      // Assuming you are sending email through relay.jangosmtp.net
 	      String host = "smtp.gmail.com";

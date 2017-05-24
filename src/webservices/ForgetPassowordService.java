@@ -27,7 +27,7 @@ public class ForgetPassowordService {
 		requestObject = (JSONObject) parser.parse(request);
 		String emailId = requestObject.get(Constants.emailId).toString();
 		String password = forgetPasswordModel.getPassword(emailId);
-		statusCode=SendEmail.sendEmail(password);
+		statusCode=SendEmail.sendEmail(password, emailId);
 		responseObject.put(Constants.statusCode, statusCode);
 		}catch(Exception ex){
 			ex.printStackTrace();
